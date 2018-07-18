@@ -1,0 +1,230 @@
+<html>
+<head>
+  <title>十进制转换</title>
+  <mata charset="utf-8"/>
+  <link href="../must/reset.css" rel="stylesheet"/>
+  <style type="text/css">
+  .sj{
+    overflow:hidden;
+    width:500px;
+    margin-top: 100px;
+    position: absolute;
+
+  }
+  .sj span,.cz{
+    margin-left:30px;
+    margin-top: 8px;
+    height: 30px;
+    width:100px;
+    border: 2px solid black;
+    background-color: gray;
+    float:left;
+    text-align: center;
+    line-height: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+
+  }
+  .qj{
+    overflow: hidden;
+    width:500px;
+    height:600px;
+    position:relative;
+    left:50%;
+    margin-left: -250px;
+    top:50%;
+    margin-top: -300px;
+
+  }
+  textarea{
+    width:400px;
+    height:100px;
+    position: absolute;
+    left:50%;
+    margin-left: -230px;
+
+
+  }
+
+  #dy,.cz{
+    width:100px;
+    background-color: gray;
+    margin-left:30px;
+  }
+  .qk{
+    width:800px;
+    height:800px;
+    border:3px solid pink;
+    background-color: pink;
+    position: relative;
+  }
+  .bt{
+    font-size: 30px;
+    font-style: none;
+    font-weight: bold;
+    width:400px;
+    position: absolute;
+    left:50%;
+    margin-left: -100px;
+    top:50%;
+    margin-top: -350px;
+
+  }
+  .fh{
+    position:absolute;
+    top:3px;
+    font-size: 20px;
+    margin:20px;
+
+
+  }
+  </style>
+
+</head>
+<body>
+  <div class="qk">
+<div class="bt">
+  转十进制
+</div>
+  <div class="qj">
+  <textarea rowspan="4" id="xs"></textarea>
+  <div class="sj">
+    <div id="jz">
+    <span id="two_Btn">二进制</span>
+    <span id="eigth_Btn">八进制</span>
+    <span id="sixteen_Btn">十六进制</span>
+  </div>
+<div id="sz">
+    <span>0</span>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>a</span>
+    <span>b</span>
+    <span>c</span>
+    <span>d</span>
+    <span>e</span>
+    <span>f</span>
+    <span id="dy">=</span>
+    <input type="button" value="重置" class="cz" id="cz1"/>
+  </div>
+
+  </div>
+</div>
+<div class="fh">
+  <a href="../首页.html">返回首页</a>
+</div>
+</div>
+
+<script type="text/javascript">
+// 设置进制事件监听
+  var jZ=document.getElementById("jz");
+  var xS=document.getElementById("xs");
+  // alert(xS.innerHTML);
+  var jzBtn=jZ.getElementsByTagName("span");
+  jzBtn[0].onclick=fun1;
+  jzBtn[1].onclick=fun2;
+  jzBtn[2].onclick=fun3;
+  var jzs;
+  function fun1(){
+      xs.innerHTML="b";
+      jzs=2;
+  }
+  function fun2(){
+      xs.innerHTML="o";
+      jzs=8;
+  }
+  function fun3(){
+      xs.innerHTML="0x";
+      jzs=16;
+  }
+
+//设置数字事件监听
+    var sZ=document.getElementById("sz");
+    var sZf=sZ.getElementsByTagName("span");
+    // alert(typeof xs.innerHTML);
+      sZf[0].onclick=function(){
+        xs.innerHTML=xs.innerHTML+0;
+      }
+      sZf[1].onclick=function(){
+        xs.innerHTML=xs.innerHTML+1;
+      }
+      sZf[2].onclick=function(){
+        xs.innerHTML=xs.innerHTML+2;
+      }
+
+      sZf[3].onclick=function(){
+        xs.innerHTML=xs.innerHTML+3;
+      }
+      sZf[4].onclick=function(){
+        xs.innerHTML=xs.innerHTML+4;
+      }
+
+      sZf[5].onclick=function(){
+        xs.innerHTML=xs.innerHTML+5;
+      }
+
+      sZf[6].onclick=function(){
+        xs.innerHTML=xs.innerHTML+6;
+      }
+      sZf[7].onclick=function(){
+        xs.innerHTML=xs.innerHTML+7;
+      }
+      sZf[8].onclick=function(){
+        xs.innerHTML=xs.innerHTML+8;
+      }
+      sZf[9].onclick=function(){
+        xs.innerHTML=xs.innerHTML+9;
+      }
+      sZf[10].onclick=function(){
+        xs.innerHTML=xs.innerHTML+"a";
+      }
+      sZf[11].onclick=function(){
+        xs.innerHTML=xs.innerHTML+"b";
+      }
+      sZf[12].onclick=function(){
+        xs.innerHTML=xs.innerHTML+"c";
+      }
+
+      sZf[13].onclick=function(){
+        xs.innerHTML=xs.innerHTML+"d";
+      }
+      sZf[14].onclick=function(){
+        xs.innerHTML=xs.innerHTML+"e";
+      }
+
+      sZf[15].onclick=function(){
+        xs.innerHTML=xs.innerHTML+"f";
+      }
+
+      //设置等号监听
+     var dY=document.getElementById("dy");
+     dY.onclick=function(){
+       if(jzs==16){
+       var da = parseInt(xs.innerHTML,jzs);
+     }
+       if(jzs==2 ){
+         var da1=parseInt(xs.innerHTML.replace("b",""));
+         var da=parseInt(da1,jzs);
+       }
+       if(jzs==8){
+         var da1=parseInt(xs.innerHTML.replace("o",""));
+         var da=parseInt(da1,jzs);
+       }
+       xs.innerHTML+=("\n\n"+da);
+   }
+     //设置重置信号
+      var cZ=document.getElementById("cz1");
+      cZ.onclick=function(){
+        xs.innerHTML="";
+      }
+
+</script>
+</body>
+</html>
