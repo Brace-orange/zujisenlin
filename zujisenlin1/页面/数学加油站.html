@@ -1,0 +1,158 @@
+<html>
+<head>
+  <title>数学加油站</title>
+  <meta charset="utf-8"/>
+  <link href="../must/reset.css" rel="stylesheet" />
+  <link href="../页面/返回首页.css" rel="stylesheet"/>
+
+<style type="text/css">
+*{margin:0px;
+padding:0px}
+body{
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+ol{
+  list-style: none;
+}
+.qb{
+  width:800px;
+  height: 430px;
+  border:1px solid black;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  left:50%;
+  margin-left: -400px;
+  margin-top:50px;
+
+
+
+}
+.tp li img{
+  margin:0px;
+  padding: 0px;
+  width:800px;
+  height: 400px;
+  display:none;
+
+}
+
+.yd{
+  width:100px;
+  height: 30px;
+ position: absolute;
+ left:50%;
+ margin-left: -50px;
+
+}
+.yd li,.yd ol .bhyd{
+  width:7px;
+  height: 7px;
+  background: url(../picture/jl.png) no-repeat -138px -133px;
+  float: left;
+  margin:5px;
+
+}
+.tp ol .xs img{
+  display: block;
+}
+.tp ol .bxs img{
+  display: none;
+}
+.zan,.yan{
+  width:55px;
+  height: 55px;
+ opacity: 0.6;
+}
+.zan{
+  background: url(../picture/sz.png) no-repeat;
+  position: absolute;
+  top:50%;
+  margin-top: -30px;
+}
+.yan{
+  background: url(../picture/sy.png) no-repeat;
+  position: absolute;
+  top:50%;
+  margin-top: -30px;
+  margin-left: 745px;
+}
+.yd ol .hyd{
+  width:7px;
+  height: 7px;
+  background: url(../picture/jl.png) no-repeat -125px -133px;
+}
+</style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div class="qb">
+  <div class="tp">
+    <ol id="tpp">
+      <li class="xs"><img src="../picture/s1.jpg"/></li>
+      <li><img src="../picture/s2.jpg"/></li>
+      <li><img src="../picture/s3.jpg"/></li>
+      <li><img src="../picture/s4.jpg"/></li>
+      <li><img src="../picture/s5.jpg"/></li>
+    </ol>
+  </div>
+  <div class="yd">
+    <ol id="ydd">
+      <li class="hyd"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+  <div class="zan" id="zann">
+
+  </div>
+  <div class="yan" id="yann">
+
+  </div>
+</div>
+<script type="text/javascript">
+var index;
+  //获得对象
+  var tpv=document.getElementById("tpp").getElementsByTagName("li");
+  var ydv=document.getElementById("ydd").getElementsByTagName("li");
+  var zanv=document.getElementById("zann");
+  var yanv=document.getElementById("yann");
+  for(var i=0;i<tpv.length;i++){
+    if(tpv[i].className=="xs"){
+      index=i;
+    }
+  }
+  zanv.onclick=fun1;
+  function fun1(){
+
+    tpv[index].className="bxs";
+    ydv[index].className="bhyd";
+    index--;
+    if(index<0){
+      index=4;
+    }
+    tpv[index].className="xs";
+    ydv[index].className="hyd";
+  }
+  yanv.onclick=fun2;
+  function fun2(){
+
+    tpv[index].className="bxs";
+    ydv[index].className="bhyd";
+    index++;
+    if(index>4){
+      index=0;
+    }
+    tpv[index].className="xs";
+    ydv[index].className="hyd";
+  }
+</script>
+
+</body>
+</html>

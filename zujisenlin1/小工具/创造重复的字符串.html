@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>创造重复字符串</title>
+  <mata charset="utf-8"/>
+  <link href="../must/reset.css" rel="stylesheet"/>
+  <link href="../页面/返回首页.css" rel="stylesheet"/>
+  <style>
+  body{
+     background-color: pink;
+  }
+  div{
+    width:400px;
+    float:left;
+  }
+  textarea{
+    width:300px;
+    height:100px;
+  }
+  .bt{
+    font-size: 40px;
+    margin:20px;
+    margin-left: 30px;
+    margin-top: 50px;
+
+  }
+  input{
+    width:90px;
+    height:60px;
+    margin-left: 100px
+  }
+  </style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div class="bt">
+      创造重复字符串啦
+  </div>
+  <div>
+  输入字符串：<textarea id="srr"></textarea>
+  重复次数&nbsp&nbsp&nbsp&nbsp：<textarea id="css"></textarea>
+  循环法&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：<textarea id="xhh"></textarea>
+  <!-- 二分法&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：<textarea id="eff"></textarea> -->
+  <input type="button" value='确定' id="qdd"/>
+  <input type="button" value="重置" id="czz"/>
+</div>
+<script type="text/javascript">
+  //获得dom操作对象
+
+  //补充二分法
+  var srvv=document.getElementById("srr");
+  var xhvv=document.getElementById("xhh");
+  var efvv=document.getElementById("eff");
+  var csvv=document.getElementById("css");
+  var qdvv=document.getElementById("qdd");
+  var czvv=document.getElementById("czz");
+
+  function fun1(){
+        var strr=srvv.value;
+        var csvvv=parseInt(csvv.value);
+        var i;
+        var strrr="";
+
+        for(i=0;i<=csvvv-1;i++){
+             strrr+=strr;
+        }
+      xhvv.innerHTML=strrr;
+
+ }
+  qdvv.onclick=fun1;
+  czvv.onclick=function(){
+    srvv.value="";
+    csvv.value="";
+    xhvv.value=""
+  }
+
+</script>
+</body>
+</html>

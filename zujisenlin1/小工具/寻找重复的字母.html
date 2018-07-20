@@ -1,0 +1,87 @@
+<html>
+<head>
+  <title>寻找重复的字母</title>
+  <meta charset="utf-8"/>
+  <link href="../must/reset.css" rel="stylesheet"/>
+  <link href="../页面/返回首页.css" rel="stylesheet"/>
+  <style type="text/css">
+  body{
+    background-color: pink;
+  }
+  textarea{
+   overflow: hidden;
+   width:400px;
+
+     font-size: 15px;
+     line-height:50px;
+  }
+  .da{
+
+    position: absolute;
+    left:50%;
+    margin-left: -100px;
+  }
+  .bt{
+    font-size: 40px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div class="da">
+  <div class="bt">
+    寻找重复的字母！
+  </div>
+  <div>
+    请输入一串字母--随意哦！
+  <textarea cols="20" rows="5" id="sr"></textarea>
+  </div>
+  <div>
+    具体重复项以及出现的位置：
+    <textarea cols="20" rows="5" id="jt"></textarea>
+  </div>
+  <div>
+    全部重复项：
+   </br>
+    <textarea cols="20" rows="5" id="qb"></textarea>
+  </div>
+  <input type="button" value='确定' id="qd"/>
+  <input type="button" value="重置" id="cz"/>
+  <script type="text/javascript">
+    //输入的字母
+    var srv=document.getElementById("sr");
+    //得到具体
+    var jtv=document.getElementById("jt");
+    var qdv=document.getElementById("qd");
+    var qbv=document.getElementById("qb");
+    var czv=document.getElementById("cz");
+
+    czv.onclick=fun;
+    function fun(){
+      srv.value="";
+      jtv.value="";
+      qbv.value="";
+    }
+
+    qdv.onclick=fun1;
+    function fun1(){
+      var str=srv.value;
+      var re1=/([a-zA-Z]{1})\1+/g;
+      while(( a=re1.exec(str))!=null){
+//获得属性值？？？？？？？要知道具体的搜索点
+          jtv.value+=a[0]+"\n";
+        }
+     var arr=str.match(re1);
+     qbv.value=arr;
+    }
+  </script>
+</div>
+
+</body>
+
+</html>

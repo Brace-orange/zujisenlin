@@ -1,0 +1,146 @@
+
+<html>
+<head>
+  <title>大小随意排</title>
+   <meta charset="utf-8"/>
+   <link href="../must/reset.css" rel="stylesheet"/>
+
+   <link href="../页面/返回首页.css" rel="stylesheet"/>
+   <style type="text/css">
+   body{
+      background-color: rgb(129, 231, 209);
+   }
+   div{
+     width:300px;
+     float:left;
+   }
+   textarea{
+     width:400px;
+     height:100px;
+   }
+   .bt{
+     font-size: 40px;
+     margin:20px;
+     margin-top: 50px;
+     margin-left: 30px;
+
+   }
+
+   input{
+     width:90px;
+     height:60px;
+     margin-left: 50px
+   }</style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div class="bt">
+      大小随意排
+  </div>
+  <div>
+  输入数字(以空格分开)：<textarea id="sr"></textarea>
+  <!-- <div class="ts">
+    以空格分开！
+  </div> -->
+  从大到小：<textarea id="da"></textarea>
+  从小到大：<textarea id="xi"></textarea>
+  <!-- 二分法&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：<textarea id="eff"></textarea> -->
+  <input type="button" value='确定' id="qdd"/>
+  <input type="button" value="重置" id="czz"/>
+</div>
+<script>
+        var srv=document.getElementById("sr");
+        var dav=document.getElementById("da");
+        var xiv=document.getElementById("xi");
+        var qdv=document.getElementById("qdd");
+        var czv=document.getElementById("czz");
+
+//sore方法
+  //    function fun2(){
+  //      var str=srv.value;
+  //      var strs=str.split(" ");
+  //      var xstrs=strs.sort(function(a,b){
+  //     if(a>b){
+  //       return -1;
+  //     }
+  //     else{return 1}
+  //   })
+  //   return xstrs;
+  // }
+
+     //快速排序
+
+     var arr;
+      function kp(starts,ends){
+
+       var start=starts;
+       var end=ends;
+        var qivot=arr[start];
+        var left=start;
+        var right=end;
+        if(start>=end){
+          return;
+        }
+        while(left!=right){
+          while(parseInt(arr[right])<=parseInt(qivot) && right>left){
+            right--;
+          }
+        while(parseInt(arr[left])>=parseInt(qivot) && left<right){
+          left++;
+        }
+
+        if(left<right){
+          var temp1=arr[right];
+          arr[right]=arr[left];
+          arr[left]=temp1;
+        }
+      }
+      arr[start]=arr[left];
+      arr[left]=qivot;
+      kp(start,left-1);
+      kp(right+1,end);
+      }
+
+
+
+
+//冒泡排序
+    function fun1(){
+      var str=srv.value;
+      var strs=str.split(" ");
+        var xstr1=strs;
+      for(var i=0;i<xstr1.length-1;i++){
+        for(var j=xstr1.length-1;j>i;j--){
+          if(parseInt(xstr1[j])<parseInt(xstr1[j-1])){
+            var temp=xstr1[j];
+            xstr1[j]=xstr1[j-1];
+            xstr1[j-1]=temp;
+          }
+        }
+      }
+
+      return xstr1;
+    }
+    function fun3(){
+      var str=srv.value;
+       arr=str.split(" ");
+      kp(0,arr.length-1);
+      return arr;
+    }
+
+    qdv.onclick=function(){
+
+       xiv.value=fun1();
+       dav.value=fun3();
+    }
+    czv.onclick=function(){
+    srv.value="";
+    dav.value="";
+    xiv.value=""
+  }
+</script>
+
+</body>
+</html>

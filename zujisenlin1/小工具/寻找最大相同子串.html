@@ -1,0 +1,116 @@
+<html>
+<head>
+  <title>寻找最大相同子串</title>
+  <meta charset="utf-8"/>
+  <link href="../must/reset.css" rel="stylesheet"/>
+
+  <link href="../页面/返回首页.css" rel="stylesheet"/>
+
+  <style type="text/css">
+  body{
+     background-color: rgb(194, 230, 107);
+  }
+  div{
+    width:400px;
+    float:left;
+  }
+  textarea{
+    width:300px;
+    height:100px;
+  }
+  .bt{
+    font-size: 40px;
+    margin:20px;
+    margin-top: 50px;
+    margin-left: 30px;
+
+  }
+  input{
+    width:90px;
+    height:60px;
+    margin-left: 100px
+  }</style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div class="bt">
+      寻找最大相同子串
+  </div>
+  <div>
+  第一字符串：<textarea id="dy"></textarea>
+  第二字符串：<textarea id="de"></textarea>
+  最大相同串：<textarea id="xt"></textarea>
+  <!-- 二分法&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：<textarea id="eff"></textarea> -->
+  <input type="button" value='确定' id="qdd"/>
+  <input type="button" value="重置" id="czz"/>
+</div>
+<script>
+var dyv=document.getElementById("dy");
+var dev=document.getElementById("de");
+var xtv=document.getElementById("xt");
+var qdv=document.getElementById("qdd");
+var czv=document.getElementById("czz");
+
+    function fun1(yc,ec){
+      var yc=dyv.value;
+      var ec=dev.value;
+      var a=0;
+      var b=1;
+      var c=0;
+      var d=1;
+      var maxs=0;
+     var str="";
+      while(true){
+
+          if(yc.charAt(a)!=ec.charAt(c)){
+            c++;
+            d++;
+          }else{
+            while(true){
+              if(yc.charAt(b)!=ec.charAt(d)){
+                c++;
+                d++;
+                break;
+              }else{
+                  b++;d++;
+                if(maxs<b-a){
+                maxs=b-a;
+                str=yc.substring(a,b);
+                }
+              }
+              if(b>=yc.length||d>=ec.length){
+                c=0;
+                b=1;
+                a++;
+                b=a+1;
+                break;
+              }
+            }
+          }
+          if(c>=ec.lengt||d>=ec.length){
+            c=0;
+            d=1;
+            a++;
+            b=a+1;
+
+          }
+          if(a>=yc.length){
+            break;
+          }
+        }
+
+
+        xtv.value=str;
+      }
+  qdv.onclick=fun1;
+  czv.onclick=function(){
+  dyv.value="";
+  dev.value="";
+  xtv.value=""
+}
+
+</script>
+</body>
+</html>

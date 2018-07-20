@@ -1,0 +1,42 @@
+function animate(odi,targetjson,time,callback{
+var interval;
+  if(window.navigator.userAgent.indexOf("MSIE")!=-1){
+    interval=50;
+  }else{interval=5;}
+  //得到信号量
+  var xh={};
+  for(var k in targetjson){
+    xh[k]=parseInt(fetchComputedStyle(odi,k));
+
+  }
+  //步长
+var maxcount=time/interval;
+var count=0;//必须为局部变量
+  var bc={};
+  for(var k in targetjson){
+    bc[k]=(parseInt(targetjson[k])-xh[k])/maxcount;
+      // console.log((parseInt(targetjson[k])-xh[k])/maxcount);
+  }
+  var timer=setInterval(function(){
+
+    for(var k in xh){
+      xh[k]+=bc[k];
+      if(k!="opacity"){
+      odi.style[k]=xh[k]+"px";}
+      else {
+          odi.style.opacity+=xh[k];
+        odi.style.filter="alpha(opacity="+xh[k]*100+")";
+      }
+    }
+    count++;
+    if(count==maxcount){
+  for(var k in targetjson){
+    odi.style[k]=parseInt(targetjson[k])+"px";
+  }
+      clearInterval(timer);
+      callback();
+    }
+  },interval);
+
+
+}

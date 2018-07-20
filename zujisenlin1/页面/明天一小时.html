@@ -1,0 +1,123 @@
+<html>
+<head>
+  <title>明天一小时</title>
+   <meta charset="utf-8"/>
+   <link href="../页面/返回首页.css" rel="stylesheet"/>
+   <style type="text/css">
+   body{
+     position: relative;
+     background-color: rgb(189, 228, 237)
+   }
+   .sq p{
+     display: none;
+
+   }
+   .sq{
+     margin-left:0px;
+   }
+   .yq p{
+     width:80px;
+     height:80px;
+     margin-top:30px;
+     margin-left:30px;
+     background-color:rgb(123, 222, 27);
+     border-radius: 40px;
+     float:left;
+   }
+   .yq{
+
+      width:330px;
+      height:330px;
+      background-color: hsl(111, 72%, 71%);
+      border-radius: 40px;
+      position: absolute;
+      top:40%;
+      left:30%;
+   }
+   .bt{
+     margin-top: 50px;
+     font-size: 25px;
+   }
+   textarea{
+     margin:20px;
+     margin-top: 50px;
+     margin-left: 220px;
+     width:400px;
+     height:100px;
+     font-size: 40px;
+     text-align: center;
+     line-height: 100px;
+
+   }
+   .fh{
+     margin-top: -30px;
+   }
+   </style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div class="bt">
+     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp明天一小时，你要做些什么呢？快来愉快的选一选吧！可多次选择哦，随你！
+  </div>
+  <div>
+    <textarea id="xss"></textarea>
+  </div>
+  <div class="sq" id="sqq">
+  <p>看书</p>
+  <p>写字</p>
+  <p>画画</p>
+  <p>跑步</p>
+  <p>美剧</p>
+  <p>纯音乐</p>
+  <p>运动</p>
+  <p>背单词</p>
+  <p>听听力</p>
+  <p>口语大练习</p>
+  <p>看电影</p>
+  <p>骑行</p>
+  <p>游泳</p>
+  <p>逛街</p>
+  <p>打羽毛球</p>
+  <p>篮球</p>
+  <p>足球</p>
+  <p>乒乓球</p>
+  <p>网球</p>
+  <p>排球</p>
+  <p>乐器</p>
+  <p>唱歌</p>
+</div>
+<div class="yq" id="yqq">
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+</div>
+</body>
+<script>
+var sqvv=document.getElementById("sqq")
+      var sqv=document.getElementById("sqq").getElementsByTagName("p");
+      var yqv=document.getElementById("yqq").getElementsByTagName("p");
+      var xsv=document.getElementById("xss");
+      for(var i=0;i<yqv.length;i++){
+        yqv[i].index=i;
+        yqv[i].onclick=function(){
+          // 所有变黄
+          for(var j=0;j<yqv.length;j++){
+            yqv[j].style.backgroundColor="rgb(227, 242, 51)";
+          }
+          yqv[this.index].style.backgroundColor="red";
+          var ran=Math.ceil(Math.random()*21);
+          xsv.innerHTML = sqv[ran].innerHTML;
+        }
+      }
+
+
+</script>
+</html>

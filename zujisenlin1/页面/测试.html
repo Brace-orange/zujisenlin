@@ -1,0 +1,36 @@
+
+<html>
+<head>
+
+<style type="text/css">
+body{
+  margin-left: 10px;
+}</style>
+</head>
+<body id="bo">
+
+</body>
+<script>
+  function fetchComputedStyle(odiv,property){
+        //能力检测，因为IE有兼容性问题
+        if(getComputedStyle){
+          // 切换为非驼峰式，引号中写非驼峰式，无引号中写驼峰式
+          propertys = property.replace(/([A-Z])/g,function(match,$1){
+            return "-"+$1.toLowerCase();
+          })
+           return getComputedStyle(odiv)[property];
+        }else{
+          //IE只支持驼峰式
+          property=property.replace(/\-([a-z])/g,function(match,$1){
+            return $1.toUpperCase();
+          })
+          return odiv.currentStyle[property];
+        }
+
+  }
+  var idv=document.getElementById("bo");
+  console.log(fetchComputedStyle(idv,"margin-left"));
+
+</script>
+
+</html>

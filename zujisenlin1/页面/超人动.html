@@ -1,0 +1,108 @@
+<html>
+<head>
+  <title>超人动</title>
+  <meta charset="utf-8"/>
+  <link href="../页面/返回首页.css" rel="stylesheet"/>
+
+  <style>
+  *{
+    margin:0px;
+    padding:0px;
+  }
+  body{
+    background-image: url(../picture/lt.fw.png);
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .tp{
+    width:40px;
+    height: 40px;
+    position:absolute;
+    left:0px;
+    top:0px;
+    opacity:1;
+  }
+  </style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div>
+     <img src="../picture/cr.png" class="tp" id="tpp"/>
+  </div>
+</body>
+      <script type="text/javascript">
+        // 运动框架
+        var tpv=document.getElementById("tpp");
+        function animate(odi,targetjson,time,callback){
+     var interval;
+          if(window.navigator.userAgent.indexOf("MSIE")!=-1){
+            interval=50;
+          }else{interval=5;}
+          //得到信号量
+          var xh={};
+          for(var k in targetjson){
+            xh[k]=parseInt(fetchComputedStyle(odi,k));
+
+          }
+          //步长
+     var maxcount=time/interval;
+     var count=0;//必须为局部变量
+          var bc={};
+          for(var k in targetjson){
+            bc[k]=(parseInt(targetjson[k])-xh[k])/maxcount;
+              // console.log((parseInt(targetjson[k])-xh[k])/maxcount);
+          }
+          var timer=setInterval(function(){
+
+            for(var k in xh){
+              xh[k]+=bc[k];
+              if(k!="opacity"){
+              odi.style[k]=xh[k]+"px";}
+              else {
+                odi.style.opacity+=xh[k];
+                odi.style.filter+="alpha(opacity="+xh[k]*100+")";
+              }
+            }
+            count++;
+            if(count==maxcount){
+          for(var k in targetjson){
+            odi.style[k]=parseInt(targetjson[k])+"px";
+          }
+              clearInterval(timer);
+              callback();
+            }
+          },interval);
+
+
+        }
+        //定时器
+        //计算后样式，
+        function fetchComputedStyle(odiv,property){
+              //能力检测，因为IE有兼容性问题
+              if(getComputedStyle){
+                // 切换为非驼峰式，引号中写非驼峰式，无引号中写驼峰式
+                propertys = property.replace(/([A-Z])/g,function(match,$1){
+                  return "-"+$1.toLowerCase();
+                })
+                 return getComputedStyle(odiv)[property];
+              }else{
+                //IE只支持驼峰式
+                property=property.replace(/\-([a-z])/g,function(match,$1){
+                  return $1.toUpperCase();
+                })
+                return odiv.currentStyle[property];
+              }
+
+        }
+
+        animate(tpv,{"width":200,
+        "height":200,
+        "left":500,
+        "top":500,"opacity":0.3},1000,function(){
+
+        });
+
+      </script>
+</html>

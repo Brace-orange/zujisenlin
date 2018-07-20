@@ -1,0 +1,164 @@
+<html>
+<head>
+  <title>星期预知小能手</title>
+  <meta charset="utf-8"/>
+  <link href="../must/reset.css" rel="stylesheet"/>
+  <link href="../页面/返回首页.css" rel="stylesheet"/>
+
+  <style>
+  body{
+    position: relative;
+  }
+  .qk{
+    width:500px;
+    height: 500px;
+    border:2px solid yellow;
+    background-color: yellow;
+    position:absolute;
+    left:50%;
+    margin-left: -250px;
+    top:50%;
+    margin-top: -250px;
+  }
+  .bt{
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    width:400px;
+    height: 40px;
+    line-height: 40px;
+    position:absolute;
+    left:50%;
+    margin-left: -200px;
+
+  }
+.qj{
+  width:400px;
+  height: 400px;
+  position: absolute;
+  left:50%;
+  margin-left: -200px;
+  top:50%;
+  margin-top: -100px;
+}
+.xq,.ts,.da{
+  width:300px;
+  height: 100px;
+  font-size: 20px;
+  position: relative;
+}
+.ts{
+  width:450px;
+}
+.xq select,.sr,.da textarea{
+  width:150px;
+  height: 40px;
+  font-size: 25px;
+  text-align: center;
+  border:1px solid black;
+  margin:0px;
+  padding: 0px;
+
+}
+
+.sr{
+  margin-top:
+}
+.an{
+  width:100px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: -10px;
+}
+.da textarea{
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div class="qk">
+
+  <div class="bt">
+    你想知道某一天是星期几吗？
+  </div>
+  <div class="qj">
+
+  <div class="xq">
+    今天是：<select id="xqx">
+      <option value="1">
+      Monday
+    </option><option value="2">
+      Tuesday
+    </option><option value="3">
+      Wednesday
+    </option><option value="4">
+      Thursday
+    </option><option value="5">
+      Friday
+    </option><option value="6">
+      Saturday
+    </option><option value="0">
+      Sunday
+    </option></select>
+  </div>
+  <div class="ts">
+    多少天后呢？
+  <input type="text" class="sr" id="tsV"/>天
+ </div>
+ <div class="da">
+   咚咚咚---
+   <textarea id="scK"></textarea>
+ </div>
+ <input type="button" value="确定" class="an" id="qdA"/>
+ <input type="button" value="重置" class="an" id="czA"/>
+</div>
+</div>
+<script type="text/javascript">
+//星期值
+var XQX=document.getElementById("xqx");
+
+   // console.log(XQX.options[index].value);
+   //天数值
+
+   //确定按钮
+   var qda=document.getElementById("qdA");
+   //重置按钮
+   var cza=document.getElementById("czA");
+   // 得到输出框
+   var sck=document.getElementById("scK");
+   qda.onclick=function(){
+     var index=XQX.selectedIndex;
+     var xqv=parseInt(XQX.options[index].value);
+     var TS =document.getElementById("tsV");
+     var tsv=parseInt(TS.value);
+      var i=(tsv%7+xqv)%7;
+      // console.log(i);
+      // console.log(tsv);
+      // console.log(xqv);
+      var j=0;
+      switch(i){
+        case 0:j="Sunday"
+        break;
+          case 1:j="Monday"
+          break;
+            case 2:j="Tuesday"
+            break;
+              case 3:j="Wednesday"
+              break;
+                case 4:j="Thursday"
+                break;
+                  case 5:j="Friday"
+                  break;
+                    case 6:j="Saturday"
+                    break;}
+
+      sck.innerHTML=j;
+
+   }
+
+</script>
+</body>
+</html>

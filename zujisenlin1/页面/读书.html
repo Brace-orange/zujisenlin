@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>书</title>
+  <meta charset="utf-8"/>
+  <link href="../页面/返回首页.css" rel="stylesheet"/>
+  <style type="text/css">
+
+  .qb{
+    width:600px;
+    height:300px;
+    margin-top:60px;
+  }
+  .qb div,img{
+    width:200px;
+    height:300px;
+    float:left;
+  }
+  .z{
+    width:150px;
+    height:150px;
+    line-height: 150px;
+    margin-top:50px;
+    margin-left:50px;
+    margin-right: -50px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+
+  </style>
+</head>
+<body>
+  <div class="fh">
+    <a href="../首页.html">返回首页</a>
+  </div>
+  <div class="qb">
+  <div class="z" id="sy">
+    上一张
+  </div>
+  <div>
+  <img src="../picture/x1.jpg" id="tp"/>
+</div>
+  <div class="z" id="xy">
+    下一张
+  </div>
+</div>
+<script type="text/javascript">
+  var syv=document.getElementById("sy");
+    var xyv=document.getElementById("xy");
+      var tpv=document.getElementById("tp");
+
+      var index=1;
+      syv.onclick=fun1;
+      xyv.onclick=fun2;
+      function fun1(){
+        index--;
+        if(index<=0){
+          index=6;
+        }
+        tpv.src="../picture/x"+index+".jpg";
+      }
+      function fun2(){
+        index++;
+        if(index>6){
+          index=1;
+        }
+        tpv.src="../picture/x"+index+".jpg";
+      }
+</script>
+</body>
+</html>
